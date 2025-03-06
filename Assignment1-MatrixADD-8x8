@@ -1,0 +1,58 @@
+// ####################
+// Author       : Arjun M P
+// Reg No       : 24011501002
+// Class        : M.Tech
+// University   : SNU
+// ####################
+
+#include <iostream>  // For input/output operations
+#include <cstdlib>   // For rand() and srand()
+#include <ctime>     // For time() to seed the random number generator
+
+using namespace std;
+
+int main() {
+    const int SIZE = 8;  // Define the size of the matrix (8x8)
+    
+    int A[SIZE][SIZE], B[SIZE][SIZE], C[SIZE][SIZE];  // Declare 3 matrices A, B, and C of size 8x8
+
+    srand(time(0));  // Seed the random number generator with the current time, to ensure random numbers each time
+
+    // Generate random values for matrix A (range 1 to 10)
+    cout << "Matrix A (8x8):\n";  // Print the heading for Matrix A
+    for (int i = 0; i < SIZE; i++) {  // Loop over rows of matrix A
+        for (int j = 0; j < SIZE; j++) {  // Loop over columns of matrix A
+            A[i][j] = rand() % 10 + 1;  // Assign a random number between 1 and 10 to each element of A
+            cout << A[i][j] << " ";  // Print the value of matrix A at position [i][j]
+        }
+        cout << endl;  // Print a newline after each row of matrix A
+    }
+
+    cout << "\nMatrix B (8x8):\n";  // Print the heading for Matrix B
+    // Generate random values for matrix B (range 1 to 10)
+    for (int i = 0; i < SIZE; i++) {  // Loop over rows of matrix B
+        for (int j = 0; j < SIZE; j++) {  // Loop over columns of matrix B
+            B[i][j] = rand() % 10 + 1;  // Assign a random number between 1 and 10 to each element of B
+            cout << B[i][j] << " ";  // Print the value of matrix B at position [i][j]
+        }
+        cout << endl;  // Print a newline after each row of matrix B
+    }
+
+    // Perform matrix addition A + B = C
+    for (int i = 0; i < SIZE; i++) {  // Loop over rows
+        for (int j = 0; j < SIZE; j++) {  // Loop over columns
+            C[i][j] = A[i][j] + B[i][j];  // Add corresponding elements from A and B, store result in C
+        }
+    }
+
+    // Output the result matrix C (A + B)
+    cout << "\nResultant Matrix C (A + B):\n";  // Print the heading for Resultant Matrix C
+    for (int i = 0; i < SIZE; i++) {  // Loop over rows of matrix C
+        for (int j = 0; j < SIZE; j++) {  // Loop over columns of matrix C
+            cout << C[i][j] << " ";  // Print the value of matrix C at position [i][j]
+        }
+        cout << endl;  // Print a newline after each row of matrix C
+    }
+
+    return 0;  // Return 0 to indicate successful execution
+}
